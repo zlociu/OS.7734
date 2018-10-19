@@ -1,5 +1,5 @@
 package text_interface;
 
-public class Obj
+public class TextInterface
 {
 }
