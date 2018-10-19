@@ -1,5 +1,5 @@
 package web_management;
 
-public class Obj
+public class WebManagement
 {
 }
