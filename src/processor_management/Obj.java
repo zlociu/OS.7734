@@ -1,5 +1,5 @@
 package processor_management;
 
-public class Obj
+public class ProcessorManagement
 {
 }
