@@ -1,5 +1,5 @@
 package permissions_management;
 
-public class Obj
+public class permission_management
 {
 }
