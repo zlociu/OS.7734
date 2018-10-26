@@ -1,4 +1,4 @@
-
+package permissions_management;
 import java.util.ArrayList;
 
 public class users_list {

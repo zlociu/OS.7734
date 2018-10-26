@@ -1,4 +1,4 @@
-
+package permissions_management;
 public class domain {
 
 	private String name; // is unique

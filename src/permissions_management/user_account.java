@@ -1,4 +1,4 @@
-
+package permissions_management;
 public class user_account {
 
 	private String user_name;
