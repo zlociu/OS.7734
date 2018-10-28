@@ -27,12 +27,30 @@ public class process {
 	
 	public void add_domain_own(user_account name)
 	{
-		if(!exist_name(name.get_name())) lista.add(new domain_access_list(name,access_mode.OWNER));
+		if(!exist_name(name.get_name()))
+			{
+			lista.add(new domain_access_list(name,access_mode.OWNER));
+			if(name.is_admin())
+				{
+					lista.get(lista.size()-1).add_right(access_mode.READ_COPY);
+					lista.get(lista.size()-1).add_right(access_mode.WRITE_COPY);
+					lista.get(lista.size()-1).add_right(access_mode.EXECUTE_COPY);
+				}
+			}
 	}
 	
 	public void add_domain(user_account name)
 	{
-		if(!exist_name(name.get_name())) lista.add(new domain_access_list(name));
+		if(!exist_name(name.get_name()))
+			{
+				lista.add(new domain_access_list(name));
+				if(name.is_admin())
+				{
+					lista.get(lista.size()-1).add_right(access_mode.READ_COPY);
+					lista.get(lista.size()-1).add_right(access_mode.WRITE_COPY);
+					lista.get(lista.size()-1).add_right(access_mode.EXECUTE_COPY);
+				}
+			}
 	}
 	
 	public void delete_domain(user_account name)
@@ -45,6 +63,25 @@ public class process {
 				break;
 			}
 		}
+	}
+	
+	public boolean have_right(String name, access_mode value)
+	{
+		int n = -1;
+		for(int i=0;i<lista.size();i++)
+		{
+			if(lista.get(i).get_name() == name)
+			{
+				n = i;
+				break;
+			}
+		}
+		if(n!=-1)
+		{
+			if(lista.get(n).access_collection.contains(value)) return false;
+			else return false;
+		}
+		return false;
 	}
 	
 	public void add_right(String name,access_mode value)
